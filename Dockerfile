@@ -34,6 +34,8 @@ RUN wget --no-verbose -O /tmp/google-cloud-sdk.tar.gz https://dl.google.com/dl/c
   gcloud config set --installation component_manager/disable_update_check true && \
   gcloud config set --installation core/disable_usage_reporting true && \
   gcloud components install beta --quiet && \
+  gcloud components install kubectl --quiet && \
+  gcloud components install kustomize --quiet && \
   rm -f /tmp/google-cloud-sdk.tar.gz && \
   rm -rf /usr/local/google-cloud-sdk/.install/.backup && \
   find /usr/local/google-cloud-sdk -type d -name __pycache__ -exec rm -r {} \+
