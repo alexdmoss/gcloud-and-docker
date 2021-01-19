@@ -23,12 +23,13 @@ RUN apt-get update && \
   openssh-client \
   shellcheck \
   unzip \
+  make \
   wget && \
   rm -rf /var/lib/apt/lists/*
 
 # gcloud
 ENV PATH=$PATH:/usr/local/google-cloud-sdk/bin
-ARG GCLOUD_VERSION=318.0.0
+ARG GCLOUD_VERSION=324.0.0
 RUN wget --no-verbose -O /tmp/google-cloud-sdk.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-${GCLOUD_VERSION}-linux-x86_64.tar.gz && \
   tar -C /usr/local --keep-old-files -xz -f /tmp/google-cloud-sdk.tar.gz && \
   gcloud config set --installation component_manager/disable_update_check true && \
