@@ -2,7 +2,7 @@ stages:
 - build-and-push
 
 variables:
-  IMAGE_TAG: "424.0.0"
+  IMAGE_TAG: "512.0.0"
 
 build:
   stage: build-and-push
@@ -13,7 +13,7 @@ build:
     - docker:dind
   before_script:
   - until docker info >/dev/null; do sleep 1; echo "Waiting for docker startup"; done
-  - echo "${DOCKER_CREDS}" | docker login --username mosstech --password-stdin
+  - echo "${DOCKER_CREDS}" | docker login --username al3xos --password-stdin
   script:
-    - docker build -t mosstech/gcloud-and-docker:${IMAGE_TAG} .
-    - docker push mosstech/gcloud-and-docker:${IMAGE_TAG}
+    - docker build -t al3xos/gcloud-and-docker:${IMAGE_TAG} .
+    - docker push al3xos/gcloud-and-docker:${IMAGE_TAG}
